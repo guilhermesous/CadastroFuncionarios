@@ -2,6 +2,7 @@ import os
 import conex
 import time
 import cadastrar
+conectar = conex.conectar
 os.system('cls')
 def main():
     print("Bem-Vindo ao Sistema de Cadastro de Funcionários 1.0v")

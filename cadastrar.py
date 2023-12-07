@@ -1,3 +1,5 @@
+import conex
+conectar = conex.conectar
 def cadastrarFuncionario():
     print("Cadastrar Funcionário")
     print("------------------------")
@@ -21,7 +23,7 @@ def cadastrarFuncionario():
             print("Nesse campo é válido apenas letras!\nTente novamente")
     while True:
         try:
-            escolha = int(input('Digite o setor do funcionário 1- [ADM] 2- [OPR] 3- [TI] 4- [LOG] 5- [RH]: '))
+            escolha = int(input('Digite o setor do funcionário 1- [ADM] 2- [OPR] 3- [TI] 4- [LOG] 5- [RH]\n-> ').strip())
             if escolha == 1:
                 setor == 'ADM'
                 break
@@ -39,3 +41,10 @@ def cadastrarFuncionario():
                 break
         except ValueError:
             print("Nesse campo é válido apenas números!\nTente novamente")
+    while True:
+        try:
+            salario = float(input().strip())
+        except ValueError:
+            print()
+    
+    
