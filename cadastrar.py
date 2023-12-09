@@ -78,4 +78,4 @@ def cadastrarFuncionario():
     retorno_De_Dados = cursor.fetchall()
     for i in retorno_De_Dados:
         print(f'ID: {i[0]}\nNome Completo: {i[1]}\nFunção: {i[2]}\nSetor: {i[3]}\nSalario: {i[4]}')
-    # sistema_cadastro.main()
+
