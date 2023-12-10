@@ -1,14 +1,12 @@
 import os
 os.system ('cls')
-import mysql.connector
-conectar = mysql.connector.connect(host = 'localhost',
+import mysql.connector 
+
+conectar = mysql.connector.connect(host='localhost',
                                    database = 'cadastrofuncionarios',
-                                   user = '',
-                                   password = '')
-if conectar.is_connected():
-    print('Conexão realizado com sucesso!')
-else:
-    print('falha na conexão')
+                                   user='henrygab', 
+                                   password='897612')
+
 
 def pesquisa_nome():
     print('-------PESQUISA DE FUNCIONÁRIOS-------\nDigite o Nome do Funcionário ')
