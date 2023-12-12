@@ -13,6 +13,6 @@ sistema.
 
 Envolvidos:
 - Guilherme Santos
-- Antônio Nicolas
-- Henry
+- Nicolas Antônio
+- Henry Gabriel
 - Filipe Calaça
