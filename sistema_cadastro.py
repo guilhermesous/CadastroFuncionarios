@@ -7,7 +7,7 @@ os.system('cls')
 
 
 def main():
-    print("Bem-Vindo ao Sistema de Cadastro de Funcionários 1.0v")
+    print("Bem-Vindo ao Sistema de Cadastro de Funcionários 3.0v")
     print("--------------------------------------------------------")
     print()
     while True:
