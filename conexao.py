@@ -3,8 +3,8 @@ os.system ('cls')
 import mysql.connector
 conectar = mysql.connector.connect(host = 'localhost',
                                    database = 'cadastrofuncionarios',
-                                   user = 'guilherme',
-                                   password = '789456')
+                                   user = '',
+                                   password = '')
 if conectar.is_connected():
     print('Conexão realizado com sucesso!')
 else:
