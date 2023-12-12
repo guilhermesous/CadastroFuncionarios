@@ -29,12 +29,12 @@ def cadastrarFuncionario():
     while True:
         try:
             escolha = int(input(
-                'Digite o setor do funcionário 1- [ADM] 2- [OPR] 3- [TI] 4- [LOG] 5- [RH]\n-> ').strip())
+                'Digite o setor do funcionário 1- [ADM] 2- [OP] 3- [TI] 4- [LOG] 5- [RH]\n-> ').strip())
             if escolha == 1:
                 setor = 'ADM'
                 break
             elif escolha == 2:
-                setor = 'OPR'
+                setor = 'OP'
                 break
             elif escolha == 3:
                 setor = 'TI'
@@ -72,10 +72,6 @@ def cadastrarFuncionario():
     time.sleep(0.6)
     print("Usuário cadastrado com sucesso!")
     time.sleep(1)
-    comando = """SELECT * FROM funcionarios"""
-    cursor = conectar.cursor()
-    cursor.execute(comando)
-    retorno_De_Dados = cursor.fetchall()
-    for i in retorno_De_Dados:
-        print(f'ID: {i[0]}\nNome Completo: {i[1]}\nFunção: {i[2]}\nSetor: {i[3]}\nSalario: {i[4]}')
+    os.system('cls')
+
 
