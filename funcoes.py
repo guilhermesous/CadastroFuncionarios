@@ -1,11 +1,7 @@
 import os
 os.system ('cls')
-import mysql.connector 
-
-conectar = mysql.connector.connect(host='localhost',
-                                   database = 'cadastrofuncionarios',
-                                   user='henrygab', 
-                                   password='897612')
+import conexao
+conectar = conexao.conectar
 
 
 def pesquisa_nome():
@@ -19,41 +15,39 @@ def pesquisa_nome():
             break
             
 
-    pesquisa = """SELECT * FROM  cadastrofuncionarios WHERE Nome="""
-    dado_nome = ""f"('{nome_digitado}')"""
+    pesquisa = """SELECT * FROM  funcionarios WHERE Nome like"""
+    dado_nome = ""f"('{nome_digitado}%')"""
     sql = pesquisa + dado_nome
 
     cursor = conectar.cursor()
     cursor.execute(sql)
     retornoDeDados = cursor.fetchall()
-    for linha in retornoDeDados:
-        print('-'*20)
-        for x in linha: 
-            print(x)
+    for x in retornoDeDados:
+        print('-'*70)        
+        print(f"ID: {x[0]}, Nome: {x[1]}, Cargo: {x[2]}, Setor: {x[3]}, Salário: {x[4]}")
 
 def listar():
     print('-------FUNCIONÁRIOS CADASTRADOS-------')
 
-    comando_visualizar = """SELECTE * FROM cadastrofuncionarios"""
+    comando_visualizar = """SELECT * FROM funcionarios"""
     cursor = conectar.cursor()
     cursor.execute(comando_visualizar)
     retornoDeDados = cursor.fetchall()  
-    for linha in retornoDeDados:
-        print('____')
-    for x in linha:
-        print(x)
+    for x in retornoDeDados:
+        print('-'*70)
+        print(f"ID: {x[0]}, Nome: {x[1]}, Cargo: {x[2]}, Setor: {x[3]}, Salário: {x[4]}")
+            
 
 def delet_cadastro():
-    print('-------DELETAR CADASTROS-------\nDigite o ID do Funcionário ')
-    print('Digite o ID que deseja excluir')
+    print('-------DELETAR CADASTROS-------\n')
     
     while True:
 
         try:
-            id_digitado = float(input("Digite o Id Do Funcionário"))
+            id_digitado = float(input("Digite o Id Do Funcionário: "))
             while id_digitado < 0:
                 os.system('cls')
-                id_digitado = float(input("Digite um Id válido"))
+                id_digitado = float(input("Digite um Id álido: "))
             break
         except ValueError:
             os.system('cls')
@@ -62,15 +56,10 @@ def delet_cadastro():
 
 
 
-    comando_delet = """DELET * FROM cadastrofuncionarios WHERE ID="""
+    comando_delet = """DELETE FROM funcionarios WHERE ID="""
     dado_id_delet = ""f"('{id_digitado}')"""
     sql = comando_delet + dado_id_delet
     cursor = conectar.cursor()
-    cursor.execute(sql)
-    retornoDeDados = cursor.fetchall()
-
-
-    for linha in retornoDeDados:
-        print('-'*20)
-        for x in linha: 
-            print(x)
+    cursor.execute(sql) 
+    conectar.commit()
+    print('FUNCIONÁRIO DELETADO DO BANCO')
